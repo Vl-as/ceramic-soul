@@ -1,0 +1,134 @@
+@use "/src/sass/base/variables.scss" as *;
+@use "/src/sass/base/mixins.scss" as *;
+
+.catalog {
+  padding-top: 50px;
+  padding-bottom: 60px;
+  &__title {
+    margin-top: 60px;
+  }
+  &__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px 50px;
+    margin-top: 60px;
+    padding: 13px 25px;
+    border: 1px solid $dark;
+  }
+  &__tab {
+    position: relative;
+    padding: 0;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    color: #000;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    &_active {
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        width: 100%;
+        height: 1px;
+        background-color: #000;
+      }
+    }
+  }
+  &__content {
+    margin-top: 60px;
+    &-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  }
+  &__card {
+    width: 340px;
+    min-height: 275px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    box-shadow: 5px 5px 10px 0px #00000040;
+    background-color: $light;
+    &-frame {
+      width: 100%;
+      height: 198px;
+      overflow: hidden;
+    }
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &-footer {
+      padding: 12px 12px 17px 12px;
+      border: 1px solid $dark;
+      border-top: none;
+      display: flex;
+      flex-direction: column;
+    }
+    &-title {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      color: #000;
+    }
+    &-price {
+      margin-top: 7.7px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      color: #000;
+    }
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .catalog {
+    &__tabs {
+      width: 460px;
+    }
+    &__content {
+      position: relative;
+      padding: 10px;
+      @include angle-decoration;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .catalog {
+    &__content {
+      padding: 25px;
+      &-wrapper {
+        gap: 35px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .catalog {
+    padding-top: 40px;
+    padding-bottom: 100px;
+    &__title {
+      margin-top: 100px;
+    }
+    &__content {
+      &-wrapper {
+        gap: 25px 83px;
+      }
+    }
+    &__card {
+      width: 285px;
+      min-height: 250px;
+      &-frame {
+        height: 180px;
+      }
+    }
+  }
+}

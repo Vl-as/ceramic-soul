@@ -1,0 +1,153 @@
+@use "/src/sass/base/variables.scss" as *;
+
+.header {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  &__nav {
+    display: none;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    a {
+      display: block;
+      color: $dark;
+      font-size: 20px;
+
+      span {
+        display: block;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  &__menu {
+    position: fixed;
+    padding: 50px 10px;
+    top: 0;
+    left: -100vw;
+    z-index: 11;
+    width: 100vw;
+    height: 100vh;
+    background-color: $light;
+    opacity: 0;
+    transition: all .4s;
+    &_active {
+      transform: translateX(100%);
+      opacity: 1;
+    }
+    &-close {
+      width: 20px;
+      height: 20px;
+      span {
+        display: block;
+        width: 19.8px;
+        height: 1px;
+        background-color: $dark;
+        &:first-child {
+          transform: translateY(8.5px) translateX(-0.25px) rotate(45deg);
+        }
+        &:last-child {
+          transform: translateY(8px) rotate(-45deg);
+        }
+      }
+    }
+    &-nav {
+      margin-top: 50px;
+      padding-left: 14px;
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding: 0;
+        list-style-type: none;
+      }
+    }
+    &-link {
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 100%;
+      color: $dark;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  height: 23px;
+  padding-right: 35px;
+
+  span {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: $dark;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    &__nav {
+      display: block;
+      margin-top: 20px;
+
+      ul {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding-left: 0;
+
+        li {
+          list-style-type: none;
+        }
+      }
+    }
+
+    &__link {
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 100%;
+      text-transform: uppercase;
+      color: $dark;
+    }
+    &__menu{
+        display: none;
+    }
+  }
+
+  .burger {
+    visibility: hidden;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .header {
+    &__logo {
+      width: 150px;
+      height: 151px;
+    }
+
+    &__nav {
+      margin-top: 36px;
+      ul {
+        gap: 60px;
+      }
+    }
+  }
+}
